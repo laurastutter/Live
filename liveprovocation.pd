@@ -1,0 +1,114 @@
+#N canvas 279 43 981 751 12;
+#X obj 259 146 *~;
+#X obj 324 106 osc~;
+#X floatatom 323 77 5 0 0 0 - - -, f 5;
+#X obj 324 59 hsl 100 15 12.7 1270 1 0 empty empty frequency 27 6 0
+10 #efb8e2 #f315de #000000 0 1;
+#X obj 172 30 adc~;
+#X obj 173 113 *~;
+#X floatatom 207 78 5 0 0 0 - - -, f 5;
+#X obj 207 56 hsl 100 15 0 1 0 0 empty empty gain\ in 30 6 0 10 #cd9feb
+#e9bf50 #502f11 0 1;
+#X obj 263 173 *~;
+#X obj 272 327 +~;
+#X obj 296 262 *~;
+#X obj 291 167 hsl 100 15 0 1 0 0 empty empty gain\ ring 30 6 0 10
+#178057 #e9bf50 #502f11 8400 1;
+#X obj 349 259 hsl 100 15 0 1 0 0 empty empty gain\ write 30 6 0 10
+#178057 #e9bf50 #502f11 0 1;
+#X text 290 424 adc ring modulation;
+#X floatatom 678 93 0 0 1000 0 - - -;
+#X text 748 145 signal input (delay time in ms);
+#X obj 679 121 pack 0 1000;
+#X obj 679 146 line~;
+#X obj 668 343 dac~;
+#X obj 678 270 *~;
+#X obj 726 225 tgl 100 0 empty empty empty 17 7 0 10 #fc0400 #000000
+#000000 1 1;
+#X obj 687 59 hsl 128 15 0 1000 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X text 828 179 readback buffer;
+#X text 834 308 <<< emergency on/off button;
+#X obj 353 596 *~;
+#X obj 421 857 dac~;
+#X obj 418 556 osc~;
+#X floatatom 417 527 5 0 0 0 - - -, f 5;
+#X obj 417 504 hsl 100 15 12.7 1270 1 0 empty empty frequency 27 6
+0 10 #efb8e2 #f315de #000000 0 1;
+#X obj 264 529 adc~;
+#X obj 267 563 *~;
+#X floatatom 301 528 5 0 0 0 - - -, f 5;
+#X obj 301 506 hsl 100 15 0 1 0 0 empty empty gain\ in 30 6 0 10 #cd9feb
+#e9bf50 #502f11 0 1;
+#X msg 347 531 0, f 2;
+#X obj 357 623 *~;
+#X obj 397 654 delwrite~ delay2 1000;
+#X obj 447 712 delread~ delay2 1000;
+#X floatatom 448 688 5 0 0 0 - - -, f 5;
+#X obj 423 815 +~;
+#X obj 440 777 *~;
+#X obj 428 622 hsl 100 15 0 1 0 0 empty empty gain\ ring 30 6 0 10
+#178057 #e9bf50 #502f11 0 1;
+#X obj 500 747 hsl 100 15 0 1 0 0 empty empty gain\ write 30 6 0 10
+#178057 #e9bf50 #502f11 0 1;
+#X obj 123 655 *~;
+#X obj 169 653 hsl 100 15 0 2 0 0 empty empty gain\ adc 30 6 0 10 #178057
+#e9bf50 #502f11 5100 1;
+#X obj 270 369 delwrite~ feedback 1000;
+#X obj 296 224 delread~ feedback 1000;
+#X obj 295 202 hsl 128 15 0 1000 0 0 empty empty delay\ time 29 5 0
+10 #cf2a14 #000000 #000000 0 1;
+#X obj 678 178 vd~ feedback;
+#X obj 183 245 *~;
+#X obj 89 168 vsl 15 80 0 1 0 0 empty empty adc 0 -9 0 10 #176117 #000000
+#000000 0 1;
+#X msg 420 333 clear;
+#X connect 0 0 8 0;
+#X connect 1 0 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 0;
+#X connect 5 0 48 0;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 44 0;
+#X connect 10 0 9 1;
+#X connect 11 0 8 1;
+#X connect 12 0 10 1;
+#X connect 14 0 16 0;
+#X connect 16 0 17 0;
+#X connect 17 0 47 0;
+#X connect 19 0 18 0;
+#X connect 19 0 18 1;
+#X connect 20 0 19 1;
+#X connect 21 0 14 0;
+#X connect 24 0 34 0;
+#X connect 26 0 24 1;
+#X connect 27 0 26 0;
+#X connect 28 0 27 0;
+#X connect 29 0 30 0;
+#X connect 29 1 30 0;
+#X connect 30 0 24 0;
+#X connect 30 0 42 0;
+#X connect 31 0 30 1;
+#X connect 32 0 31 0;
+#X connect 33 0 30 1;
+#X connect 34 0 38 0;
+#X connect 34 0 35 0;
+#X connect 36 0 39 0;
+#X connect 37 0 36 0;
+#X connect 38 0 25 0;
+#X connect 38 0 25 1;
+#X connect 39 0 38 1;
+#X connect 40 0 34 1;
+#X connect 41 0 39 1;
+#X connect 42 0 38 0;
+#X connect 43 0 42 1;
+#X connect 45 0 10 0;
+#X connect 46 0 45 0;
+#X connect 47 0 19 0;
+#X connect 48 0 9 0;
+#X connect 49 0 48 1;
+#X connect 50 0 44 0;
